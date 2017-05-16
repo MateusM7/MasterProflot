@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: MasterProflot
+        psr4_prefix: MasterProflot
+        src_path: app
