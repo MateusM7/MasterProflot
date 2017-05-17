@@ -25,4 +25,18 @@ class Professor extends Model implements Transformable
 
     ];
 
-}
+    public function tipos(){
+        return $this->ManyToMany(Tipo::class);
+          // ou seja, um professor possui á varios tipos
+
+    }
+
+    public function disciplinas(){
+         return $this->ManyToMany(Disciplinas::class);
+          // ou seja, um professor ministra varias disciplinas.   
+    }
+
+    public function salas(){
+         return $this->ManyToMany(Sala::class);
+          // ou seja, um professor esta em varias salas.   
+    }

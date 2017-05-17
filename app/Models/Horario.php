@@ -16,5 +16,9 @@ class Horario extends Model implements Transformable
 
 
     ];
+    public function disciplinas(){
+         return $this->ManyToMany(Disciplina::class);
+          // ou seja, uma Horario tem varias disciplina.	
+    }
 
 }

@@ -15,4 +15,26 @@ class Curso extends Model implements Transformable
 
     ];
 
-}
+    public function alunos(){
+         return $this->hasMany(Aluno::class);
+          // ou seja um curso tem varios Alunos.	
+    }
+
+    public function fluxos(){
+         return $this->hasMany(Fluxo::class);
+          // ou seja, um curso tem varios fluxos.	
+    }
+    
+    public function salas(){
+
+    	return $this->belongsToMany(Sala::class);
+    	// Um Curso possui varias salas.
+    }
+    
+    public function funcionarios(){
+         return $this->hasMany(Funcionario::class);
+          // ou seja um curso tem varios Funcionarios.	
+    }
+
+
+

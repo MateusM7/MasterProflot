@@ -14,4 +14,21 @@ class Tipo extends Model implements Transformable
     'description'
     ];
 
+    public function alunos(){
+    	return $this->hasMany(Aluno::class);
+          // ou seja, um tipo possui varios alunos    
+    }
+
+    public function funcionarios(){
+    	return $this->hasMany(Funcionario::class);
+          // ou seja, um tipo possui varios funcionario    
+    }
+
+    public function professores(){
+        return $this->ManyToMany(Professor::class);
+          // ou seja, mais de um tipo pertecem a um professor    
+    }
+
+
+
 }

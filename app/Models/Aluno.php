@@ -23,4 +23,19 @@ class Aluno extends Model implements Transformable
 
     ];
 
+     public function curso(){
+         return $this->hasOne(Curso::class);
+          // ou seja, um aluno pertence um curso.   
+      }
+
+      public function tipo(){
+         return $this->hasOne(Tipo::class);
+          // um aluno pertence a um tipo   
+      }
+
+
+
+
+
+
 }

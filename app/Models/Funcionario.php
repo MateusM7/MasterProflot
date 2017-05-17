@@ -23,4 +23,16 @@ class Funcionario extends Model implements Transformable
 
     ];
 
+     public function curso(){
+         return $this->hasOne(Curso::class);
+          // ou seja um funcionario pertence a um curso.  
+    }
+    public function tipo(){
+         return $this->hasOne(Tipo::class);
+          // um funcionario pertence a um tipo   
+      }
+
+
+
+
 }

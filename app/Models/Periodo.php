@@ -14,5 +14,9 @@ class Periodo extends Model implements Transformable
     'description'
     
     ];
+    public function disciplinas(){
+         return $this->hasMany(Disciplina::class);
+          // ou seja, um periodo tem varios disciplinas.	
+    }
 
 }

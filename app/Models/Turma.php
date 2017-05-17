@@ -14,4 +14,9 @@ class Turma extends Model implements Transformable
      'number'
     ];
 
+    public function disciplina(){
+         return $this->hasOne(Disciplina::class);
+          // ou seja, uma turma  pertence a uma disciplina.   
+      } 
+
 }

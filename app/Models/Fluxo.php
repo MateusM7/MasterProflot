@@ -16,4 +16,15 @@ class Fluxo extends Model implements Transformable
 
     ];
 
+    public function curso(){
+         return $this->hasOne(Curso::class);
+          // ou seja, um fluxo  pertence a um curso.   
+      }
+
+      public function disciplinas(){
+         return $this->hasMany(Disciplina::class);
+          // ou seja, um fluxo  tem varias disciplinas.   
+      }
+
+
 }
