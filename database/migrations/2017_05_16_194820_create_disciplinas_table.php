@@ -19,9 +19,9 @@ class CreateDisciplinasTable extends Migration
             $table->integer('periodos_id')->unsigned();
             $table->foreign('periodos_id')->references('id')->on('periodos');
             $table->string('name');
-            $table->string('optativa');
-            $table->string('pratica');
-            $table->string('carga_horaria');
+            $table->string('optativa')->default('Não');
+            $table->string('pratica')->default('Sim');
+            $table->integer('carga_horaria');
             $table->timestamps();
         });
     }

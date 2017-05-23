@@ -11,11 +11,88 @@
 |
 */
 
-$factory->define(MasterProflot\User::class, function (Faker\Generator $faker) {
+$factory->define(MasterProflot\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(MasterProflot\Models\Turma::class, function (Faker\Generator $faker) {
+    return [
+        'mumber' =>$faker->numberBetween(1,10),
+    ];
+});
+
+$factory->define(MasterProflot\Models\Sala::class, function (Faker\Generator $faker) {
+    return [
+        'campus'=> $faker->word,
+        'capacity'=>$faker->numberBetween(30,50),
+        'mumber' =>$faker->numberBetween(1,60),
+    ];
+});
+
+$factory->define(MasterProflot\Models\Aluno::class, function (Faker\Generator $faker) {
+    return [
+    'name'=>$faker->name,
+    'email' => $faker->safeEmail,
+    'phone'=>$faker->phoneNumber,
+    'birth_date'=>$faker->date,
+    'sex' => $faker->word,
+    'username'=>$faker->name,
+    'password'=>$faker->word,
+    ];
+});
+
+$factory->define(MasterProflot\Models\Curso::class, function (Faker\Generator $faker) {
+    return [
+         'description'=>$faker->sentence,
+    ];
+});
+
+$factory->define(MasterProflot\Models\Fluxo::class, function (Faker\Generator $faker) {
+    return [
+         'description'=>$faker->sentence,
+    ];
+});
+
+$factory->define(MasterProflot\Models\Periodo::class, function (Faker\Generator $faker) {
+    return [
+         'description'=>$faker->sentence,
+    ];
+});
+
+$factory->define(MasterProflot\Models\Disciplina::class, function (Faker\Generator $faker) {
+    return [
+    'name'=> $faker->name,
+    'carga_horaria'=> $faker->numberBetween(60,100),
+    ];
+});
+
+$factory->define(MasterProflot\Models\Funcionario::class, function (Faker\Generator $faker) {
+    return [
+    'name'=>$faker->name,
+    'email' => $faker->safeEmail,
+    'phone'=>$faker->phoneNumber,
+    'birth_date'=>$faker->date,
+    'sex' => $faker->word,
+    'username'=>$faker->name,
+    'password'=>$faker->word,
+    ];
+});
+
+$factory->define(MasterProflot\Models\Professor::class, function (Faker\Generator $faker) {
+    return [
+    'name'=>$faker->name,
+    'email' => $faker->safeEmail,
+    'phone'=>$faker->phoneNumber,
+    'birth_date'=>$faker->date,
+    'sex' => $faker->word,
+    'username'=>$faker->name,
+    'password'=>$faker->word,
+    'regiment'=>$faker->word,
+    'lates'=>=>$faker->word,
     ];
 });
