@@ -16,7 +16,7 @@ class CreateSalasTable extends Migration
             $table->increments('id');
             $table->string('campus');
             $table->integer('capacity');
-            $table->integer('mumber');
+            $table->integer('number');
             $table->timestamps();
         });
     }

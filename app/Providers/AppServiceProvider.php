@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'MasterProflot\Repositories\PeriodoRepository',
+            'MasterProflot\Repositories\PeriodoRepositoryEloquent'
+
+            );
+       
+        
     }
 }
