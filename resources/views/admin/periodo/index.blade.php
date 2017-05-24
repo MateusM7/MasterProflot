@@ -26,7 +26,7 @@
                                @foreach($periodos as $periodo)
                                <td>{{$periodo->id}}</td>
                                <td>{{$periodo->description}}</td>
-                               <td><button type="button" class="btn btn-primary">Editar</button></td>
+                               <td><a href="{{ route('admin.periodo.edit',['id'=>$periodo->id])}}"><button type="button" class="btn btn-primary">Editar</button></a></td>
                                 <td><button type="button" class="btn btn-danger">Excluir</button></td>
                             </tr>
                                 @endforeach

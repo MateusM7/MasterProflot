@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 Route::group(['prefix'=>'admin', 'as'=>'admin.'], function(){
 Route::get('periodo/index',['as'=>'periodo.index', 'uses'=>'PeriodoController@index']);
-
+Route::get('periodo/novo_periodo',['as'=>'periodo.create', 'uses'=>'PeriodoController@create']);
+Route::post('periodo/store',['as'=>'periodo.store', 'uses'=>'PeriodoController@store']);
+Route::get('periodo/editar/{id}',['as'=>'periodo.edit', 'uses'=>'PeriodoController@edit']);
+Route::post('periodo/update/{id}',['as'=>'periodo.update', 'uses'=>'PeriodoController@update']);
 });

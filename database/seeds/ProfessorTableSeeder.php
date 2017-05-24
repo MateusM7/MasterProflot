@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use MasterProflot\Models\Professor;
+
 class ProfessorTableSeeder extends Seeder
 {
     /**

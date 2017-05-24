@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use MasterProflot\Http\Requests;
 use MasterProflot\Http\Controllers\Controller;
 use MasterProflot\Repositories\PeriodoRepository;
+use MasterProflot\Http\Requests\AdminPeriodoRequest;
 class PeriodoController extends Controller
 {
     /**
@@ -44,21 +45,13 @@ class PeriodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminPeriodoRequest $request)
     {
-        $data = $repository->all();
+        $data = $request->all();
+        $this->repository->create($data);
 
-    }
+        return redirect()->route('admin.periodo.index');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -69,7 +62,8 @@ class PeriodoController extends Controller
      */
     public function edit($id)
     {
-        
+         $periodo = $this->repository->find($id);
+         return view('admin.periodo.edit',compact('periodo'));   
     }
 
     /**
@@ -79,9 +73,11 @@ class PeriodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminPeriodoRequest $request, $id)
     {
-        //
+        $data =$request->all();
+        $this->repository->update($data,$id);
+        return redirect()->route('admin.periodo.index'); 
     }
 
     /**
@@ -90,8 +86,4 @@ class PeriodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
 }

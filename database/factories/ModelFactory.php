@@ -62,19 +62,10 @@ $factory->define(MasterProflot\Models\Fluxo::class, function (Faker\Generator $f
     ];
 });
 
-$factory->define(MasterProflot\Models\Disciplina::class, function (Faker\Generator $faker) {
-    return [
-    'name'=> $faker->name,
-    'carga_horaria'=> $faker->numberBetween(60,100),
-    ];
-});
 
 
-$factory->define(MasterProflot\Models\Turma::class, function (Faker\Generator $faker) {
-    return [
-        'number' => $faker->numberBetween(1,10),
-    ];
-});
+
+
 
 $factory->define(MasterProflot\Models\Professor::class, function (Faker\Generator $faker) {
     return [

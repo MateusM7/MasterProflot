@@ -28,6 +28,6 @@ class CreateFluxosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('fluxo');
+        Schema::drop('fluxos');
     }
 }
