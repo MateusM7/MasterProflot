@@ -36,8 +36,12 @@ Route::get('tipos/novo',['as'=>'tipos.create', 'uses'=>'TipoController@create'])
 Route::post('tipos/store',['as'=>'tipos.store', 'uses'=>'TipoController@store']);
 Route::get('tipos/editar/{id}',['as'=>'tipos.edit', 'uses'=>'TipoController@edit']);
 Route::post('tipos/update/{id}',['as'=>'tipos.update', 'uses'=>'TipoController@update']);
-Route::get('tipos/destroy/{id}',['as'=>'tipos.destroy', 'uses'=>'TipoController@destroy']);
-Route::get('tipos/show/{id}',['as'=>'tipos.show', 'uses'=>'TipoController@show']);
 
+/*----------------------------Cursos-------------------------------------------------------------------*/
+Route::get('cursos/exibir',['as'=>'cursos.index', 'uses'=>'CursoController@index']);
+Route::get('cursos/novo',['as'=>'cursos.create', 'uses'=>'CursoController@create']);
+Route::post('cursos/store',['as'=>'cursos.store', 'uses'=>'CursoController@store']);
+Route::get('cursos/editar/{id}',['as'=>'cursos.edit', 'uses'=>'CursoController@edit']);
+Route::post('cursos/update/{id}',['as'=>'cursos.update', 'uses'=>'CursoController@update']);
 
 });
