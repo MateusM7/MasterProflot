@@ -6,27 +6,29 @@ use Illuminate\Http\Request;
 
 use MasterProflot\Http\Requests;
 use MasterProflot\Http\Controllers\Controller;
-use MasterProflot\Repositories\PeriodoRepository;
-use MasterProflot\Http\Requests\AdminPeriodoRequest;
-class PeriodoController extends Controller
+use MasterProflot\Repositories\TipoRepository;
+use MasterProflot\Http\Requests\AdminTipoRequest;
+
+class TipoController extends Controller
 {
+    
+
+     private $repository;
+    
+    public function __construct( TipoRepository $repository){
+
+            $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    private $repository;
-    
-    public function __construct( PeriodoRepository $repository){
-
-            $this->repository = $repository;
-    }
-
     public function index()
     {
-        $periodos = $this->repository->paginate(10);
-        return view('admin.periodos.index',compact('periodos'));
+        $tipos = $this->repository->paginate(10);
+        return view('admin.tipos.index',compact('tipos'));
     }
 
     /**
@@ -36,7 +38,7 @@ class PeriodoController extends Controller
      */
     public function create()
     {
-        return view('admin.periodos.create');
+         return view('admin.tipos.create');
     }
 
     /**
@@ -45,13 +47,23 @@ class PeriodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminPeriodoRequest $request)
+    public function store(AdminTipoRequest $request)
     {
         $data = $request->all();
         $this->repository->create($data);
 
-        return redirect()->route('admin.periodos.index');
+        return redirect()->route('admin.tipos.index');
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -62,8 +74,8 @@ class PeriodoController extends Controller
      */
     public function edit($id)
     {
-         $periodo = $this->repository->find($id);
-         return view('admin.periodos.edit',compact('periodo'));   
+         $tipo = $this->repository->find($id);
+         return view('admin.tipos.edit',compact('tipo'));   
     }
 
     /**
@@ -73,11 +85,11 @@ class PeriodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminPeriodoRequest $request, $id)
+    public function update(AdminTipoRequest $request, $id)
     {
         $data =$request->all();
         $this->repository->update($data,$id);
-        return redirect()->route('admin.periodos.index'); 
+        return redirect()->route('admin.tipos.index'); 
     }
 
     /**
@@ -86,4 +98,8 @@ class PeriodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function destroy($id)
+    {
+        //
+    }
 }

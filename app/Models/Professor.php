@@ -40,3 +40,4 @@ class Professor extends Model implements Transformable
          return $this->ManyToMany(Sala::class);
           // ou seja, um professor esta em varias salas.   
     }
+}
