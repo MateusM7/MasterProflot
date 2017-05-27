@@ -12,7 +12,7 @@
  </div>
  <div class="forme-grup">
  	{!! Form::label('Data','Data:') !!}
- 	{!! Form::text('birth_date',null,['class'=>'form-control']) !!}
+ 	{!! Form::date('birth_date',null,['class'=>'form-control']) !!}
  </div>
  <div class="forme-grup">
  	{!! Form::label('Sexo','Sexo:') !!}
