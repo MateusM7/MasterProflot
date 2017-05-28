@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFuncionariosTable extends Migration
+class AddNivelToProfessorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,12 @@ class CreateFuncionariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::table('professors', function (Blueprint $table) {
             $table->integer('cursos_id')->unsigned();
             $table->foreign('cursos_id')->references('id')->on('cursos');
             $table->integer('tipos_id')->unsigned();
             $table->foreign('tipos_id')->references('id')->on('tipos');
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->date('birth_date');
-            $table->string('sex');
-            $table->string('username');
-            $table->string('password', 60);
-            $table->timestamps();
+            $table->integer('nivel')->default(1);
         });
     }
 
@@ -36,6 +28,8 @@ class CreateFuncionariosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('funcionarios');
+        Schema::table('professors', function (Blueprint $table) {
+            //
+        });
     }
 }

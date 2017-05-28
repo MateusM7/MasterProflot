@@ -18,7 +18,7 @@ class PeriodoController extends Controller
 
     private $repository;
     
-    public function __construct( PeriodoRepository $repository){
+    public function __construct(PeriodoRepository $repository){
 
             $this->repository = $repository;
     }

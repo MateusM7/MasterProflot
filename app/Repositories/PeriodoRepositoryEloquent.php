@@ -33,4 +33,8 @@ class PeriodoRepositoryEloquent extends BaseRepository implements PeriodoReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+        public function lists ($value, $key = null){
+        return $this->model->lists('description', 'id');
+    }
 }

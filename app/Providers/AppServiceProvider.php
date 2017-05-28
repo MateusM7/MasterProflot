@@ -38,6 +38,16 @@ class AppServiceProvider extends ServiceProvider
             'MasterProflot\Repositories\TipoRepositoryEloquent'
 
             );
+        $this->app->bind(
+            'MasterProflot\Repositories\DisciplinaRepository',
+            'MasterProflot\Repositories\DisciplinaRepositoryEloquent'
+
+            );
+         $this->app->bind(
+            'MasterProflot\Repositories\FluxoRepository',
+            'MasterProflot\Repositories\FluxoRepositoryEloquent'
+
+            );
        
         
     }
