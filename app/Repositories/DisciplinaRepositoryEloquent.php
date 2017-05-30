@@ -8,6 +8,8 @@ use MasterProflot\Repositories\DisciplinaRepository;
 use MasterProflot\Models\Disciplina;
 use MasterProflot\Validators\DisciplinaValidator;
 
+use Illuminate\Support\Facades\DB;
+
 /**
  * Class DisciplinaRepositoryEloquent
  * @package namespace MasterProflot\Repositories;
@@ -24,7 +26,6 @@ class DisciplinaRepositoryEloquent extends BaseRepository implements DisciplinaR
         return Disciplina::class;
     }
 
-    
 
     /**
      * Boot up the repository, pushing criteria
@@ -32,5 +33,14 @@ class DisciplinaRepositoryEloquent extends BaseRepository implements DisciplinaR
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+
+
+    //Retorna somente as disciplinas ativas
+    public function list_active() {
+        $disciplinas = DB::table('disciplinas')
+        ->where('active', '=', true)->get();
+        return $disciplinas;
     }
 }

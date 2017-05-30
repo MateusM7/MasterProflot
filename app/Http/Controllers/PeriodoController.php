@@ -75,8 +75,8 @@ class PeriodoController extends Controller
      */
     public function update(AdminPeriodoRequest $request, $id)
     {
-        $data =$request->all();
-        $this->repository->update($data,$id);
+        $data = $request->all();
+        $this->repository->update($data, $id);
         return redirect()->route('admin.periodos.index'); 
     }
 

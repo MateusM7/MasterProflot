@@ -3,7 +3,7 @@
 namespace MasterProflot\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 use MasterProflot\Http\Requests;
 use MasterProflot\Http\Controllers\Controller;
@@ -11,12 +11,15 @@ use MasterProflot\Repositories\DisciplinaRepository;
 use MasterProflot\Repositories\FluxoRepository;
 use MasterProflot\Repositories\PeriodoRepository;
 
+use MasterProflot\Models\Disciplina;
+
 class DisciplinaController extends Controller
 {
 
     private $repository;
     private $fluxoRepository;
     private $periodoRepository;
+    private $disciplinas;
 
     public function __construct(DisciplinaRepository $repository, FluxoRepository $fluxoRepository, PeriodoRepository $periodoRepository) {
         $this->repository = $repository;
@@ -31,10 +34,13 @@ class DisciplinaController extends Controller
      */
     public function index()
     {
-        //$disciplinas = $this->repository->paginate(10);
-        $disciplinas = DB::table('disciplinas')->where('active', '=', 1)->post();
+
+        $disciplinas = $this->repository->list_active();
+
         return view('admin.disciplinas.index', compact('disciplinas'));
-}
+
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -69,7 +75,9 @@ class DisciplinaController extends Controller
      */
     public function show($id)
     {
-        //
+        $disciplina = $this->repository->find($id);
+
+        return view('admin.disciplinas.show', compact('disciplina'));
     }
 
     /**
@@ -80,7 +88,10 @@ class DisciplinaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fluxos = $this->fluxoRepository->lists(['description', 'id']);
+        $periodos = $this->periodoRepository->lists(['description', 'id']);
+        $disciplina = $this->repository->find($id);
+        return view('admin.disciplinas.edit', compact('disciplina', 'fluxos', 'periodos'));
     }
 
     /**
@@ -92,7 +103,10 @@ class DisciplinaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $this->repository->update($data, $id);
+        return redirect()->route('admin.disciplinas.index');
+
     }
 
     /**
@@ -103,6 +117,11 @@ class DisciplinaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Deixa o campo active falso (0).
+        $disciplina = Disciplina::find($id);
+        $disciplina->active = 0;
+        $disciplina->save();
+        return redirect()->route('admin.disciplinas.index');
+        
     }
 }
