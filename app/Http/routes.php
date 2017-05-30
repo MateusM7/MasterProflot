@@ -43,4 +43,7 @@ Route::post('tipos/update/{id}',['as'=>'tipos.update', 'uses'=>'TipoController@u
 
 
 
+
+
+
 });

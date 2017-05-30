@@ -15,20 +15,27 @@
                         <tr>
                            <th>Id</th>
                            <th>Disciplina</th>
-                           
+                           <th>Fluxo</th>
+                           <th>Período</th>
+                           <th>Optativa</th>
+                           <th>Pratica</th>
+                           <th>Carga horaria</th>
                             <th colspan="3">Ações</th>
                             
                          </tr>
                     </thead>
                     <tbody>   
                            <tr>
-                               @foreach($disciplinas as $disciplina)
                                <td>{{$disciplina->id}}</td>
                                <td>{{$disciplina->name}}</td>
-                               <td><a href="{{ route('admin.disciplinas.show',['id'=>$disciplina->id])}}"><button type="button" class="btn btn-success">Detalhes</button></td>
-                               <td><a href="{{ route('admin.disciplinas.destroy',['id'=>$disciplina->id])}}"><button type="button" class="btn btn-danger">Desabilitar</button></td>
+                               <td>{{$disciplina->fluxos_id}}</td>
+                               <td>{{$disciplina->periodos_id}}</td>
+                               <td>{{$disciplina->optativa}}</td>
+                               <td>{{$disciplina->pratica}}</td>
+                               <td>{{$disciplina->carga_horaria}}</td>
+                                <td><a href="{{ route('admin.disciplinas.edit',['id'=>$disciplina->id])}}"><button type="button" class="btn btn-primary">Editar</button></a></td>
                             </tr>
-                                @endforeach
+                                
                      </tbody>
                   </table>
                    

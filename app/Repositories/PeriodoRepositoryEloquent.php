@@ -29,12 +29,11 @@ class PeriodoRepositoryEloquent extends BaseRepository implements PeriodoReposit
     /**
      * Boot up the repository, pushing criteria
      */
-    public function boot()
-    {
+    public function boot(){
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-        public function lists ($value, $key = null){
+    public function lists ($value, $key = null){
         return $this->model->lists('description', 'id');
     }
 }

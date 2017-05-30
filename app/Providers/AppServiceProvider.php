@@ -38,8 +38,6 @@ class AppServiceProvider extends ServiceProvider
             'MasterProflot\Repositories\TipoRepositoryEloquent'
 
             );
-
-            
        
         
     }
