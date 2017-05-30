@@ -58,6 +58,7 @@
         </nav>
         <nav class="navbar navbar-m2p sidebar" role="navigation">
             <div class="container-fluid">
+            
              <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <!-- Dashboard -->

@@ -6,20 +6,19 @@ use Illuminate\Http\Request;
 
 use MasterProflot\Http\Requests;
 use MasterProflot\Http\Controllers\Controller;
-use MasterProflot\Repositories\TipoRepository;
-use MasterProflot\Http\Requests\AdminTipoRequest;
-
-class TipoController extends Controller
+use MasterProflot\Repositories\CursoRepository;
+use MasterProflot\Http\Requests\AdminCursoRequest;
+class CursoController extends Controller
 {
-    
 
-     private $repository;
-    
-    public function __construct( TipoRepository $repository){
 
-            $this->repository = $repository;
+    private $repository;
+
+    public function  __construct(CursoRepository $repository)
+    {
+        $this->repository = $repository;
+
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +26,8 @@ class TipoController extends Controller
      */
     public function index()
     {
-        $tipos = $this->repository->paginate(10);
-        return view('admin.tipos.index',compact('tipos'));
+        $cursos = $this->repository->paginate(10);
+        return view('admin.cursos.index',compact('cursos'));
     }
 
     /**
@@ -38,7 +37,7 @@ class TipoController extends Controller
      */
     public function create()
     {
-         return view('admin.tipos.create');
+        return view('admin.cursos.create');
     }
 
     /**
@@ -47,12 +46,11 @@ class TipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminTipoRequest $request)
+    public function store(AdminCursoRequest $request)
     {
         $data = $request->all();
         $this->repository->create($data);
-
-        return redirect()->route('admin.tipos.index');
+        return redirect()->route('admin.cursos.index');
     }
 
     /**
@@ -61,7 +59,6 @@ class TipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -70,8 +67,8 @@ class TipoController extends Controller
      */
     public function edit($id)
     {
-         $tipo = $this->repository->find($id);
-         return view('admin.tipos.edit',compact('tipo'));   
+         $curso = $this->repository->find($id);
+         return view('admin.cursos.edit',compact('curso'));
     }
 
     /**
@@ -81,11 +78,11 @@ class TipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminTipoRequest $request, $id)
+    public function update(AdminCursoRequest $request, $id)
     {
-        $data =$request->all();
+        $data = $request->all();
         $this->repository->update($data,$id);
-        return redirect()->route('admin.tipos.index'); 
+        return redirect()->route('admin.cursos.index');
     }
 
     /**
@@ -94,4 +91,5 @@ class TipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+   
 }

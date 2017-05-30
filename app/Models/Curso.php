@@ -38,3 +38,4 @@ class Curso extends Model implements Transformable
 
 
 
+}
