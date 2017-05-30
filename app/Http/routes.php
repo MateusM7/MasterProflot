@@ -40,17 +40,7 @@ Route::get('tipos/novo',['as'=>'tipos.create', 'uses'=>'TipoController@create'])
 Route::post('tipos/store',['as'=>'tipos.store', 'uses'=>'TipoController@store']);
 Route::get('tipos/editar/{id}',['as'=>'tipos.edit', 'uses'=>'TipoController@edit']);
 Route::post('tipos/update/{id}',['as'=>'tipos.update', 'uses'=>'TipoController@update']);
-Route::get('tipos/destroy/{id}',['as'=>'tipos.destroy', 'uses'=>'TipoController@destroy']);
-Route::get('tipos/show/{id}',['as'=>'tipos.show', 'uses'=>'TipoController@show']);
 
-/*-----------------------------Disciplinas------------------------------------------------------------------*/
-Route::get('disciplinas/index',['as'=>'disciplinas.index', 'uses'=>'DisciplinaController@index']);
-Route::get('disciplinas/novo',['as'=>'disciplinas.create', 'uses'=>'DisciplinaController@create']);
-Route::post('disciplina/store',['as'=>'disciplinas.store', 'uses'=>'DisciplinaController@store']);
-Route::get('disciplinas/editar/{id}',['as'=>'disciplinas.edit', 'uses'=>'DisciplinaController@edit']);
-Route::post('disciplinas/update/{id}',['as'=>'disciplinas.update', 'uses'=>'DisciplinaController@update']);
-Route::get('disciplinas/destroy/{id}',['as'=>'disciplinas.destroy', 'uses'=>'DisciplinaController@destroy']);
-Route::get('disciplinas/show/{id}',['as'=>'disciplinas.show', 'uses'=>'DisciplinaController@show']);
 
 
 });
