@@ -33,4 +33,8 @@ class FluxoRepositoryEloquent extends BaseRepository implements FluxoRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function lists ($value, $key = null){
+        return $this->model->lists('description', 'id');
+    }
 }
